@@ -1,0 +1,147 @@
+/* ---- tokens ---- */
+:root {
+  --bg: #0c0c0e;
+  --surface: #17171a;
+  --surface-line: #29292e;
+  --text: #ece7da;
+  --text-dim: #948f82;
+  --accent: #c9a227;   /* film-reel gold */
+  --accent-dim: #7a651e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+/* ---- header ---- */
+#site-header {
+  padding: 2.5rem 2rem 1.5rem;
+  border-bottom: 1px solid var(--surface-line);
+}
+
+#site-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* ---- search ---- */
+#search-area {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.5rem 2rem 0;
+  max-width: 480px;
+}
+
+#search-input {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--surface-line);
+  color: var(--text);
+  padding: 0.65rem 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  border-radius: 2px;
+}
+
+#search-input::placeholder { color: var(--text-dim); }
+
+#search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+#search-btn {
+  background: var(--accent);
+  color: #0c0c0e;
+  border: none;
+  padding: 0 1.2rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+#search-btn:hover { background: #ddb42f; }
+
+/* ---- filters ---- */
+#filter-area {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 2rem 0;
+}
+
+#genre-filter,
+#sort-filter {
+  background: var(--surface);
+  border: 1px solid var(--surface-line);
+  color: var(--text);
+  padding: 0.5rem 0.75rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  border-radius: 2px;
+}
+
+/* ---- series grid ---- */
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.series-card {
+  background: var(--surface);
+  border: 1px solid var(--surface-line);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.series-card:hover { border-color: var(--accent-dim); }
+
+.series-poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: #000;
+  display: block;
+  object-fit: cover;
+}
+
+.series-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0.85rem 0.9rem 0.2rem;
+}
+
+.series-meta {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin: 0 0.9rem 0.9rem;
+}
+
+/* ---- responsive ---- */
+@media (max-width: 480px) {
+  #site-header, #search-area, #filter-area, .series-grid {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  #search-area { max-width: none; }
+}
+.highlight {
+    color: red;
+    font-size: 30px;
+}
+.clicked {
+    color: lightslategrey;
+    font-size: 30px;
+    background-color: goldenrod;
+}

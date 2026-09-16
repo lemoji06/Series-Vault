@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Series Vault</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="background">
+
+  <header id="site-header">
+    <h1 id="site-title">Series Vault</h1>
+  </header>
+
+  <section id="search-area">
+    <input type="text" id="search-input" placeholder="Search series...">
+    <button id="search-btn">Search</button>
+  </section>
+
+  <section id="filter-area">
+    <select id="genre-filter">
+      <option value="all">All Genres</option>
+      <option value="crime">Crime</option>
+      <option value="drama">Drama</option>
+      <option value="fantasy">Fantasy</option>
+      <option value="heist">Heist</option>
+    </select>
+
+    <select id="sort-filter">
+      <option value="default">Sort By</option>
+      <option value="title-asc">Title (A-Z)</option>
+      <option value="title-desc">Title (Z-A)</option>
+      <option value="rating">Rating</option>
+    </select>
+  </section>
+
+  <main id="series-container" class="series-grid">
+
+    <article class="series-card" data-title="Suits">
+      <img class="series-poster" src="Suits.jpeg" alt="Suits poster">
+      <h2 class="series-title">Suits</h2>
+      <p class="series-meta">Drama</p>
+    </article>
+
+    <article class="series-card" data-title="Mentalist">
+      <img class="series-poster" src="Mentalist.jpeg" alt="Mentalist poster">
+      <h2 class="series-title">Mentalist</h2>
+      <p class="series-meta">Crime</p>
+    </article>
+
+    <article class="series-card" data-title="Money Heist">
+      <img class="series-poster" src="La Casa de Papel.jpeg" alt="Money Heist poster">
+      <h2 class="series-title">Money Heist</h2>
+      <p class="series-meta">Heist</p>
+    </article>
+
+    <article class="series-card" data-title="Prison Break">
+      <img class="series-poster" src="Prison Break.jpeg" alt="Prison Break poster">
+      <h2 class="series-title">Prison Break</h2>
+      <p class="series-meta">Drama</p>
+    </article>
+
+    <article class="series-card" data-title="Game of Thrones">
+      <img class="series-poster" src="GOT.jpeg" alt="Game of Thrones poster">
+      <h2 class="series-title">Game of Thrones</h2>
+      <p class="series-meta">Fantasy</p>
+    </article>
+
+  </main>
+
+  <script src="series.js"></script>
+</body>
+</html>
