@@ -68,9 +68,6 @@ const series = [
    const averageRating = totalRating / bestRatings.length;
     console.log(averageRating);
 
-    const description = document.querySelector("p");
-
-description.textContent = "A collection of the greatest series I've watched.";
     console.log("Series Vault JS connected!");
     
     const title = document.querySelector("#site-title");
@@ -101,3 +98,30 @@ const cards = series.map(function(show) {
 console.log(cards);
 const container = document.querySelector("#series-container");
 container.innerHTML = cards.join("");
+
+
+const seriesPrime = [
+    {
+        title: "Prison Break"
+    },
+    {
+        title: "Vikings"
+    },
+    {
+        title: "The Flash"
+    },
+    {
+        title: "SEAL Team"
+    },
+    {
+        title: "Suits"
+    }
+];
+
+const seriesList = seriesPrime.map(function(show) {
+    return '<h2 class="series-title">' + show.title + '</h2>';
+});
+
+const seriesContainer = document.getElementById("series-list");
+
+seriesContainer.innerHTML = seriesList.join("");
