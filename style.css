@@ -92,11 +92,13 @@ body {
 
 /* ---- series grid ---- */
 .series-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
+ display: grid;
+ grid-template-columns: repeat(5, 1fr);
+ gap: 25px;
+ padding: 2rem;
 }
+   
+
 
 .series-card {
   background: var(--surface);
@@ -144,4 +146,11 @@ body {
     color: lightslategrey;
     font-size: 30px;
     background-color: goldenrod;
+}
+#player {
+    width: 75vw;
+    height: 70vh;
+    margin: 30px auto;
+    background: #111;
+    border-radius: 15px;
 }
