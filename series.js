@@ -45,7 +45,32 @@ const series = [
     description: "At a top Manhattan corporate law firm, brilliant college dropout Mike Ross starts working with Harvey Specter, one of New York City's best lawyers, despite never having attended law school.",
     poster: "Suits.jpeg",
     video: "https://www.youtube.com/watch?v=85z53bAebs0"
-     }
+     },
+{
+    title: "The Blacklist",
+    year: 2013,
+    genre: "Crime, Drama, Thriller",
+    rating: 8.0,
+    description: "An elusive criminal mastermind surrenders to the FBI and offers to help capture dangerous criminals, but only if he can work with a particular rookie profiler.",
+    poster: "The Blacklist.jpeg",
+    video: ""
+},
+{
+    title: "Designated Survivor",
+    year: 2016,
+    genre: "Drama, Thriller, Political",
+    rating: 7.5,
+    description: "After a catastrophic attack kills the president and those ahead of him in succession, a low-level cabinet member unexpectedly becomes president and must uncover who was responsible.",
+    poster: "Designated Survivor.jpeg"
+},
+{
+    title: "White Collar",
+    year: 2009,
+    genre: "Crime, Drama, Mystery",
+    rating: 8.2,
+    description: "A brilliant con artist forms an unlikely partnership with an FBI agent to help solve difficult cases while trying to earn his freedom.",
+    poster: "White Collar.jpeg"
+}
 ];
     const titles = series.map(function(show) {
             return show.title + " (" + show.year + ")";
@@ -81,47 +106,35 @@ const series = [
 const btn = document.querySelector("#search-btn");
 btn.style.color = "black";
 btn.textContent = "Search series";
+const searchInput = document.querySelector("#search-input");
 btn.addEventListener("click", function() {
-    title.textContent = "Searching series...";
-    title.classList.toggle("highlight");
-    title.classList.add("clicked");
+
+    const searchTerm = searchInput.value;
+
+    const results = series.filter(function(show) {
+        return show.title.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+
+  
+
+   displaySeries(results);
+
+    
+
+   
 });
+function displaySeries(seriesToDisplay) {
 
-const cards = series.map(function(show) {
-    return '<article class="series-card">' +
-        '<img class="series-poster" src="' + show.poster + '" alt="' + show.title + ' poster">' +
-        '<h2 class="series-title">' + show.title + '</h2>' +
-        '<p class="series-meta">' + show.genre + '</p>' +
-        '</article>';
-});
+    const cards = seriesToDisplay.map(function(show) {
+        return '<article class="series-card">' +
+            '<img class="series-poster" src="' + show.poster + '" alt="' + show.title + ' poster">' +
+            '<h2 class="series-title">' + show.title + '</h2>' +
+            '<p class="series-meta">' + show.genre + '</p>' +
+            '</article>';
+    });
 
-console.log(cards);
-const container = document.querySelector("#series-container");
-container.innerHTML = cards.join("");
+    const container = document.querySelector("#series-container");
 
-
-const seriesPrime = [
-    {
-        title: "Prison Break"
-    },
-    {
-        title: "Vikings"
-    },
-    {
-        title: "The Flash"
-    },
-    {
-        title: "SEAL Team"
-    },
-    {
-        title: "Suits"
-    }
-];
-
-const seriesList = seriesPrime.map(function(show) {
-    return '<h2 class="series-title">' + show.title + '</h2>';
-});
-
-const seriesContainer = document.getElementById("series-list");
-
-seriesContainer.innerHTML = seriesList.join("");
+    container.innerHTML = cards.join("");
+}
+displaySeries(series);
