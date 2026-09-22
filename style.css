@@ -138,19 +138,47 @@ body {
   }
   #search-area { max-width: none; }
 }
-.highlight {
-    color: red;
-    font-size: 30px;
-}
-.clicked {
-    color: lightslategrey;
-    font-size: 30px;
-    background-color: goldenrod;
-}
+
 #player {
     width: 75vw;
-    height: 70vh;
-    margin: 30px auto;
-    background: #111;
-    border-radius: 15px;
+    max-width: 1100px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    background: #0d0d0f;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+#player:hover {
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+}
+
+#player video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+    transition: opacity 0.25s ease;
+}
+
+#player .player-empty {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8a8a92;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    background: linear-gradient(145deg, #141416, #0d0d0f);
+}
+
+@media (max-width: 768px) {
+    #player {
+        width: 92vw;
+        border-radius: 12px;
+    }
 }

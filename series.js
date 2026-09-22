@@ -9,16 +9,6 @@ const series = [
         poster: "pics/Prison Break.jpeg",
         video: "https://youtu.be/AL9zLctDJaU?si=KeSCkPs4oC77TC_W"
     },
-
-    {
-        title: "Vikings",
-        year: 2013,
-        genre: "Action, Adventure, Drama, History",
-        rating: 8.5,
-        description: "Vikings follows the adventures of Ragnar Lothbrok, the greatest hero of his age, as he rises to become King of the Viking tribes and raids distant shores.",
-        poster: "pics/Vikings.jpeg",
-        video: "https://www.youtube.com/watch?v=9GgxinPwAGc"
-    },
     {
         title: "The Flash",
         year: 2014,
@@ -144,6 +134,16 @@ const series = [
         poster: "pics/person of intrest.jpeg",
         video: ""
     },
+
+    {
+        title: "Vikings",
+        year: 2013,
+        genre: "Action, Adventure, Drama, History",
+        rating: 8.5,
+        description: "Vikings follows the adventures of Ragnar Lothbrok, the greatest hero of his age, as he rises to become King of the Viking tribes and raids distant shores.",
+        poster: "pics/Vikings.jpeg",
+        video: "videos/Vikings Season 1 Trailer.mp4"
+    },
 {
     title: "Blindspot",
     year: 2015,
@@ -190,7 +190,7 @@ btn.addEventListener("click", function() {
 function displaySeries(seriesToDisplay) {
 
     const cards = seriesToDisplay.map(function(show) {
-        return '<article class="series-card">' +
+        return '<article class="series-card" data-title="' + show.title + '">' +
             '<img class="series-poster" src="' + show.poster + '" alt="' + show.title + ' poster">' +
             '<h2 class="series-title">' + show.title + '</h2>' +
             '<p class="series-meta">' + show.genre + '</p>' +
@@ -202,3 +202,20 @@ function displaySeries(seriesToDisplay) {
     container.innerHTML = cards.join("");
 }
 displaySeries(series);
+const player = document.querySelector("#player");
+const articles = document.querySelectorAll(".series-card");
+
+articles.forEach(function(article) {
+    article.addEventListener("mouseenter", function() {
+        const show = series.find(function(show) {
+            return show.title === article.dataset.title;
+        });
+
+        if (show.video) {
+            player.innerHTML =
+                '<video src="' + show.video + '" autoplay muted controls playsinline></video>';
+        } else {
+            player.innerHTML = '<div class="player-empty">Preview unavailable</div>';
+        }
+    });
+});
